@@ -76,7 +76,7 @@ class Gallery(Cog):
     async def on_message(self, message):
         user = message.author
         embed = discord.Embed(
-            description="Hello {},\n\nPictures are required to be attached to all messages in <#560514959344402442>.\n\n"
+            description="Hello {},\n\nPictures are required to be attached to all messages in <#538411542228762625>.\n\n"
                         "If you pasted a link, i'm sorry to say that I am currently unable to validate images hosted at external links,"
                         "so linking to images is not currently allowed. You can post the image first and then go back and edit in a description if you need to.\n\n"
                         "Thanks,\n"
@@ -86,7 +86,7 @@ class Gallery(Cog):
             name="Message Remove",
             icon_url=user.avatar_url_as(static_format="png")
         )
-        channel = message.guild.get_channel(587103953993334785)
+        channel = message.guild.get_channel(539931017167896576)
         if message.guild is None:
             return
         if message.channel.id not in await self.config.guild(message.guild).channels():
