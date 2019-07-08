@@ -2,6 +2,8 @@
     "author" : ["saurichable"],
     "install_msg" : "Thank you for installing my cog!",
     "name" : "Cookies",
+    "hidden" : true,
+    "disabled" : true,
     "short" : "Collect cookies.",
     "description" : "Collect cookies and steal some from others.",
     "tags" : ["cookies", "currency"]

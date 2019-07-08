@@ -74,6 +74,19 @@ class Gallery(Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
+        user = message.author
+        embed = discord.Embed(
+            description="Hello {},\n\nPictures are required to be attached to all messages in <#560514959344402442>.\n\n"
+                        "If you pasted a link, i'm sorry to say that I am currently unable to validate images hosted at external links,"
+                        "so linking to images is not currently allowed. You can post the image first and then go back and edit in a description if you need to.\n\n"
+                        "Thanks,\n"
+                        "/r/PlexPosters Discord Moderators".format(message.author.mention)
+        )
+        embed.set_author(
+            name="Message Remove",
+            icon_url=user.avatar_url_as(static_format="png")
+        )
+        channel = message.guild.get_channel(587103953993334785)
         if message.guild is None:
             return
         if message.channel.id not in await self.config.guild(message.guild).channels():
@@ -87,7 +100,22 @@ class Gallery(Cog):
                         return
                     else:
                         await message.delete()
+                        try:
+                            await message.author.send(embed=embed)
+                        except discord.Forbidden:
+                            await channel.send("{} I am notifying you here as I am unable to PM you".format(message.author.mention))
+                            await channel.send(embed=embed)
                 else:
                     await message.delete()
+                    try:
+                        await message.author.send(embed=embed)
+                    except discord.Forbidden:
+                        await channel.send("{} I am notifying you here as I am unable to PM you".format(message.author.mention))
+                        await channel.send(embed=embed)
             else:
                 await message.delete()
+                try:
+                    await message.author.send(embed=embed)
+                except discord.Forbidden:
+                    await channel.send("{} I am notifying you here as I am unable to PM you".format(message.author.mention))
+                    await channel.send(embed=embed)

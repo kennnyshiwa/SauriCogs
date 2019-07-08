@@ -2,6 +2,8 @@
     "author" : ["saurichable"],
     "install_msg" : "Thank you for installing my cog!\nNote that you ***need*** SauriCogs' Cookies cog installed, loaded and working.",
     "name" : "CookieStore",
+    "hidden" : true,
+    "disabled" : true,
     "short" : "Additional store to Cookies cog.",
     "description" : "Additional store to Cookies cog.",
     "tags" : ["cookies", "shop", "store"],
