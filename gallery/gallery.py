@@ -86,7 +86,7 @@ class Gallery(Cog):
             name="Message Remove",
             icon_url=user.avatar_url_as(static_format="png")
         )
-        channel = message.guild.fetch_channel(539931017167896576)
+        channel = message.guild.get_channel(539931017167896576)
         if message.guild is None:
             return
         if message.channel.id not in await self.config.guild(message.guild).channels():
