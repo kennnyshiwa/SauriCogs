@@ -35,6 +35,8 @@ class Gallery(Cog):
         self, ctx: commands.Context, channel: discord.TextChannel
     ):
         """Add a channel to the list of Gallery channels."""
+        if not ctx.guild.id == 537054151583203338:
+            return await ctx.send("This command is not available here")
         if channel.id not in await self.config.guild(ctx.guild).channels():
             async with self.config.guild(ctx.guild).channels() as channels:
                 channels.append(channel.id)
@@ -50,6 +52,8 @@ class Gallery(Cog):
         self, ctx: commands.Context, channel: discord.TextChannel
     ):
         """Remove a channel from the list of Gallery channels."""
+        if not ctx.guild.id == 537054151583203338:
+            return await ctx.send("This command is not available here")
         if channel.id in await self.config.guild(ctx.guild).channels():
             async with self.config.guild(ctx.guild).channels() as channels:
                 channels.remove(channel.id)
@@ -65,6 +69,8 @@ class Gallery(Cog):
         self, ctx: commands.Context, role: discord.Role=None
     ):
         """Add a whitelisted role."""
+        if not ctx.guild.id == 537054151583203338:
+            return await ctx.send("This command is not available here")
         if not role:
             await self.config.guild(ctx.guild).whitelist.set(None)
             await ctx.send(f"Whitelisted role has been deleted.")
