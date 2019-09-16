@@ -10,7 +10,7 @@ from redbot.core.bot import Red
 Cog: Any = getattr(commands, "Cog", object)
 
 
-class Gallery(Cog):
+class TPNGallery(Cog):
     """
     Gallery channels!
     """
@@ -31,7 +31,7 @@ class Gallery(Cog):
     @commands.guild_only()
     @checks.admin_or_permissions(manage_guild=True)
     @checks.bot_has_permissions(manage_messages=True)
-    async def addgallery(
+    async def tpnaddgallery(
         self, ctx: commands.Context, channel: discord.TextChannel
     ):
         """Add a channel to the list of Gallery channels."""
@@ -48,7 +48,7 @@ class Gallery(Cog):
     @commands.guild_only()
     @checks.admin_or_permissions(manage_guild=True)
     @checks.bot_has_permissions(manage_messages=True)
-    async def rmgallery(
+    async def tpnrmgallery(
         self, ctx: commands.Context, channel: discord.TextChannel
     ):
         """Remove a channel from the list of Gallery channels."""
@@ -65,7 +65,7 @@ class Gallery(Cog):
     @commands.guild_only()
     @checks.admin_or_permissions(manage_guild=True)
     @checks.bot_has_permissions(manage_messages=True)
-    async def galleryrole(
+    async def tpngalleryrole(
         self, ctx: commands.Context, role: discord.Role=None
     ):
         """Add a whitelisted role."""
@@ -82,7 +82,7 @@ class Gallery(Cog):
     async def on_message(self, message):
         user = message.author
         embed = discord.Embed(
-            description="Hello {},\n\nPictures are required to be attached to all messages in <#560514959344402442>.\n\n"
+            description="Hello {},\n\nPictures are required to be attached to all messages in <#538411542228762625>.\n\n"
                         "If you pasted a link, i'm sorry to say that I am currently unable to validate images hosted at external links,"
                         "so linking to images is not currently allowed. You can post the image first and then go back and edit in a description if you need to.\n\n"
                         "Thanks,\n"
