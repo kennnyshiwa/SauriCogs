@@ -81,12 +81,13 @@ class TPNGallery(Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         user = message.author
+        messagechannel = message.channel.mention
         embed = discord.Embed(
-            description="Hello {},\n\nPictures are required to be attached to all messages in <#538411542228762625>.\n\n"
+            description=f"Hello {message.author.mention},\n\nPictures are required to be attached to all messages in {messagechannel}.\n\n"
                         "If you pasted a link, i'm sorry to say that I am currently unable to validate images hosted at external links,"
                         "so linking to images is not currently allowed. You can post the image first and then go back and edit in a description if you need to.\n\n"
                         "Thanks,\n"
-                        "/r/PlexPosters Discord Moderators".format(message.author.mention)
+                        "/r/ThePosterNetwork Discord Moderators"
         )
         embed.set_author(
             name="Message Remove",
